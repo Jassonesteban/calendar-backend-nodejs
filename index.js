@@ -26,6 +26,11 @@ app.use('/api/auth', require('./routes/auth'));
 /*******************RUTAS PARA LOS EVENTOS DEL CALENDAR********************** */
 app.use('/api/events', require('./routes/events'));
 
+
+app.get('*', (req, res) => {
+    res.sendFile(__dirname +'/public/index.html');
+});
+
 //escuchar peticiones
 app.listen(process.env.PORT, () => {
     console.log('Servidor arriba :) , puerto --> ' + process.env.PORT);
